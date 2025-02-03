@@ -11,5 +11,24 @@ datasource db {
 }
 
 model User {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  firebaseId  String   @unique
+  username    String   @unique
+  email       String   @unique
+  techStack   String[] @default([])
+  bio         String
+  imageUrl    String
+
+  associatedTeams TeamRole[]
 }
+
+model TeamRole {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String
+  teamId    String
+  role      String @default("basic")
+  user      User @relation(fields: [userId], references: [id])
+  team      Team @relation(fields: [teamId], references: [id])
+}
+
+
