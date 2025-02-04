@@ -1,15 +1,22 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = env("MONGO_CONNECTION_STRING")
 }
 
-model User {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+
+model Thread {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId  
+  description    String  
+  title          String  
+  creatorId      String   @db.ObjectId
+  creator        User     @relation(fields: [creatorId], references: [id])
+  enrolledUsers  String[] @db.ObjectId  
+  writeAccess    String[] @db.ObjectId 
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
