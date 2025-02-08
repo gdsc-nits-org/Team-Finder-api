@@ -10,6 +10,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+model Team {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  title          String
+  description    String
+  creatorId      String
+  creator        User     @relation(fields: [creatorId], references: [id])
+  skills         String[] @default([])
+  enrolledUsers  User[]   @relation("EnrolledTeams", references: [id])
+  writeAccess    User[]   @relation("WriteAccessTeams", references: [id])
+  maxMembers     Int      @default(5)
 }
