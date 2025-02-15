@@ -5,9 +5,12 @@ import * as Success from "../../globals/success";
 import { prisma } from "../../utils";
 
 const signUp: Interfaces.Controllers.Async = async (req, res, next) => {
-  // const kibaeta = await prisma.$connect();
-  // console.log(kibaeta);
   try {
+    const auth: string | undefined = req?.headers?.authorization;
+    if (!auth) {
+      return next(Errors.User.badRequest("Auth token is missing"));
+    }
+
     const user: Interfaces.User.CreateUserBody = req.body;
     let {
       firstName,
@@ -31,12 +34,35 @@ const signUp: Interfaces.Controllers.Async = async (req, res, next) => {
     email = email.trim();
     imageUrl = imageUrl?.trim() || "";
     techStack = techStack ?? [];
+
+    const idToken: string = (auth as string).split(" ")[1];
+
+    let decodedToken;
+    try {
+      if (process.env.NODE_ENV === "development") {
+        decodedToken = {
+          uid: idToken,
+          firebaseEmail: email,
+          picture: imageUrl,
+        };
+      } else {
+        // idk
+      }
+    } catch (err) {
+      return next(err);
+    }
+
+    if (!decodedToken) {
+      return next(Errors.User.userNotAuthenticated);
+    }
+
+    const { uid, firebaseEmail, picture } = decodedToken;
+
     const userExists = await prisma.user.count({
       where: {
         OR: [{ email }, { username }],
       },
     });
-
     if (userExists) {
       return next(Errors.User.userAlreadyExists);
     }
@@ -46,10 +72,10 @@ const signUp: Interfaces.Controllers.Async = async (req, res, next) => {
         firstName,
         middleName,
         lastName,
-        firbaseId: "",
+        firebaseId: uid,
         username,
-        email,
-        imageUrl,
+        email: process.env.NODE_ENV === "development" ? email : firebaseEmail!,
+        imageUrl: imageUrl || picture,
         techStack,
       },
     });

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@prisma/client':
-        specifier: ^6.3.1
-        version: 6.3.1(prisma@6.3.1(typescript@5.7.3))(typescript@5.7.3)
+        specifier: ^4.9.0
+        version: 4.9.0(prisma@4.9.0)
       cors:
         specifier: ^2.8.5
         version: 2.8.5
@@ -44,10 +44,10 @@ importers:
         version: 0.2.31
       '@typescript-eslint/eslint-plugin':
         specifier: ^5.49.0
-        version: 5.49.0(@typescript-eslint/parser@5.49.0(eslint@8.32.0)(typescript@5.7.3))(eslint@8.32.0)(typescript@5.7.3)
+        version: 5.49.0(@typescript-eslint/parser@5.49.0(eslint@8.32.0)(typescript@4.9.4))(eslint@8.32.0)(typescript@4.9.4)
       '@typescript-eslint/parser':
         specifier: ^5.49.0
-        version: 5.49.0(eslint@8.32.0)(typescript@5.7.3)
+        version: 5.49.0(eslint@8.32.0)(typescript@4.9.4)
       esbuild:
         specifier: ^0.17.4
         version: 0.17.4
@@ -61,8 +61,8 @@ importers:
         specifier: ^2.8.3
         version: 2.8.3
       prisma:
-        specifier: ^6.3.1
-        version: 6.3.1(typescript@5.7.3)
+        specifier: ^4.9.0
+        version: 4.9.0
       simple-git-hooks:
         specifier: ^2.8.1
         version: 2.8.1
@@ -73,8 +73,8 @@ importers:
         specifier: ^4.7.0
         version: 4.7.0
       typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
+        specifier: ^4.9.4
+        version: 4.9.4
 
 packages:
 
@@ -375,32 +375,20 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@prisma/client@6.3.1':
-    resolution: {integrity: sha512-ARAJaPs+eBkemdky/XU3cvGRl+mIPHCN2lCXsl5Vlb0E2gV+R6IN7aCI8CisRGszEZondwIsW9Iz8EJkTdykyA==}
-    engines: {node: '>=18.18'}
+  '@prisma/client@4.9.0':
+    resolution: {integrity: sha512-bz6QARw54sWcbyR1lLnF2QHvRW5R/Jxnbbmwh3u+969vUKXtBkXgSgjDA85nji31ZBlf7+FrHDy5x+5ydGyQDg==}
+    engines: {node: '>=14.17'}
     peerDependencies:
       prisma: '*'
-      typescript: '>=5.1.0'
     peerDependenciesMeta:
       prisma:
         optional: true
-      typescript:
-        optional: true
 
-  '@prisma/debug@6.3.1':
-    resolution: {integrity: sha512-RrEBkd+HLZx+ydfmYT0jUj7wjLiS95wfTOSQ+8FQbvb6vHh5AeKfEPt/XUQ5+Buljj8hltEfOslEW57/wQIVeA==}
+  '@prisma/engines-version@4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5':
+    resolution: {integrity: sha512-M16aibbxi/FhW7z1sJCX8u+0DriyQYY5AyeTH7plQm9MLnURoiyn3CZBqAyIoQ+Z1pS77usCIibYJWSgleBMBA==}
 
-  '@prisma/engines-version@6.3.0-17.acc0b9dd43eb689cbd20c9470515d719db10d0b0':
-    resolution: {integrity: sha512-R/ZcMuaWZT2UBmgX3Ko6PAV3f8//ZzsjRIG1eKqp3f2rqEqVtCv+mtzuH2rBPUC9ujJ5kCb9wwpxeyCkLcHVyA==}
-
-  '@prisma/engines@6.3.1':
-    resolution: {integrity: sha512-sXdqEVLyGAJ5/iUoG/Ea5AdHMN71m6PzMBWRQnLmhhOejzqAaEr8rUd623ql6OJpED4s/U4vIn4dg1qkF7vGag==}
-
-  '@prisma/fetch-engine@6.3.1':
-    resolution: {integrity: sha512-HOf/0umOgt+/S2xtZze+FHKoxpVg4YpVxROr6g2YG09VsI3Ipyb+rGvD6QGbCqkq5NTWAAZoOGNL+oy7t+IhaQ==}
-
-  '@prisma/get-platform@6.3.1':
-    resolution: {integrity: sha512-AYLq6Hk9xG73JdLWJ3Ip9Wg/vlP7xPvftGBalsPzKDOHr/ImhwJ09eS8xC2vNT12DlzGxhfk8BkL0ve2OriNhQ==}
+  '@prisma/engines@4.9.0':
+    resolution: {integrity: sha512-t1pt0Gsp+HcgPJrHFc+d/ZSAaKKWar2G/iakrE07yeKPNavDP3iVKPpfXP22OTCHZUWf7OelwKJxQgKAm5hkgw==}
 
   '@types/body-parser@1.19.2':
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
@@ -1186,15 +1174,10 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prisma@6.3.1:
-    resolution: {integrity: sha512-JKCZWvBC3enxk51tY4TWzS4b5iRt4sSU1uHn2I183giZTvonXaQonzVtjLzpOHE7qu9MxY510kAtFGJwryKe3Q==}
-    engines: {node: '>=18.18'}
+  prisma@4.9.0:
+    resolution: {integrity: sha512-bS96oZ5oDFXYgoF2l7PJ3Mp1wWWfLOo8B/jAfbA2Pn0Wm5Z/owBHzaMQKS3i1CzVBDWWPVnOohmbJmjvkcHS5w==}
+    engines: {node: '>=14.17'}
     hasBin: true
-    peerDependencies:
-      typescript: '>=5.1.0'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
 
   proxy-addr@2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -1401,9 +1384,9 @@ packages:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
 
-  typescript@5.7.3:
-    resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
-    engines: {node: '>=14.17'}
+  typescript@4.9.4:
+    resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
+    engines: {node: '>=4.2.0'}
     hasBin: true
 
   unpipe@1.0.0:
@@ -1627,31 +1610,15 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  '@prisma/client@6.3.1(prisma@6.3.1(typescript@5.7.3))(typescript@5.7.3)':
+  '@prisma/client@4.9.0(prisma@4.9.0)':
+    dependencies:
+      '@prisma/engines-version': 4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5
     optionalDependencies:
-      prisma: 6.3.1(typescript@5.7.3)
-      typescript: 5.7.3
+      prisma: 4.9.0
 
-  '@prisma/debug@6.3.1': {}
+  '@prisma/engines-version@4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5': {}
 
-  '@prisma/engines-version@6.3.0-17.acc0b9dd43eb689cbd20c9470515d719db10d0b0': {}
-
-  '@prisma/engines@6.3.1':
-    dependencies:
-      '@prisma/debug': 6.3.1
-      '@prisma/engines-version': 6.3.0-17.acc0b9dd43eb689cbd20c9470515d719db10d0b0
-      '@prisma/fetch-engine': 6.3.1
-      '@prisma/get-platform': 6.3.1
-
-  '@prisma/fetch-engine@6.3.1':
-    dependencies:
-      '@prisma/debug': 6.3.1
-      '@prisma/engines-version': 6.3.0-17.acc0b9dd43eb689cbd20c9470515d719db10d0b0
-      '@prisma/get-platform': 6.3.1
-
-  '@prisma/get-platform@6.3.1':
-    dependencies:
-      '@prisma/debug': 6.3.1
+  '@prisma/engines@4.9.0': {}
 
   '@types/body-parser@1.19.2':
     dependencies:
@@ -1707,33 +1674,33 @@ snapshots:
 
   '@types/yamljs@0.2.31': {}
 
-  '@typescript-eslint/eslint-plugin@5.49.0(@typescript-eslint/parser@5.49.0(eslint@8.32.0)(typescript@5.7.3))(eslint@8.32.0)(typescript@5.7.3)':
+  '@typescript-eslint/eslint-plugin@5.49.0(@typescript-eslint/parser@5.49.0(eslint@8.32.0)(typescript@4.9.4))(eslint@8.32.0)(typescript@4.9.4)':
     dependencies:
-      '@typescript-eslint/parser': 5.49.0(eslint@8.32.0)(typescript@5.7.3)
+      '@typescript-eslint/parser': 5.49.0(eslint@8.32.0)(typescript@4.9.4)
       '@typescript-eslint/scope-manager': 5.49.0
-      '@typescript-eslint/type-utils': 5.49.0(eslint@8.32.0)(typescript@5.7.3)
-      '@typescript-eslint/utils': 5.49.0(eslint@8.32.0)(typescript@5.7.3)
+      '@typescript-eslint/type-utils': 5.49.0(eslint@8.32.0)(typescript@4.9.4)
+      '@typescript-eslint/utils': 5.49.0(eslint@8.32.0)(typescript@4.9.4)
       debug: 4.3.4
       eslint: 8.32.0
       ignore: 5.2.4
       natural-compare-lite: 1.4.0
       regexpp: 3.2.0
       semver: 7.3.8
-      tsutils: 3.21.0(typescript@5.7.3)
+      tsutils: 3.21.0(typescript@4.9.4)
     optionalDependencies:
-      typescript: 5.7.3
+      typescript: 4.9.4
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@5.49.0(eslint@8.32.0)(typescript@5.7.3)':
+  '@typescript-eslint/parser@5.49.0(eslint@8.32.0)(typescript@4.9.4)':
     dependencies:
       '@typescript-eslint/scope-manager': 5.49.0
       '@typescript-eslint/types': 5.49.0
-      '@typescript-eslint/typescript-estree': 5.49.0(typescript@5.7.3)
+      '@typescript-eslint/typescript-estree': 5.49.0(typescript@4.9.4)
       debug: 4.3.4
       eslint: 8.32.0
     optionalDependencies:
-      typescript: 5.7.3
+      typescript: 4.9.4
     transitivePeerDependencies:
       - supports-color
 
@@ -1742,21 +1709,21 @@ snapshots:
       '@typescript-eslint/types': 5.49.0
       '@typescript-eslint/visitor-keys': 5.49.0
 
-  '@typescript-eslint/type-utils@5.49.0(eslint@8.32.0)(typescript@5.7.3)':
+  '@typescript-eslint/type-utils@5.49.0(eslint@8.32.0)(typescript@4.9.4)':
     dependencies:
-      '@typescript-eslint/typescript-estree': 5.49.0(typescript@5.7.3)
-      '@typescript-eslint/utils': 5.49.0(eslint@8.32.0)(typescript@5.7.3)
+      '@typescript-eslint/typescript-estree': 5.49.0(typescript@4.9.4)
+      '@typescript-eslint/utils': 5.49.0(eslint@8.32.0)(typescript@4.9.4)
       debug: 4.3.4
       eslint: 8.32.0
-      tsutils: 3.21.0(typescript@5.7.3)
+      tsutils: 3.21.0(typescript@4.9.4)
     optionalDependencies:
-      typescript: 5.7.3
+      typescript: 4.9.4
     transitivePeerDependencies:
       - supports-color
 
   '@typescript-eslint/types@5.49.0': {}
 
-  '@typescript-eslint/typescript-estree@5.49.0(typescript@5.7.3)':
+  '@typescript-eslint/typescript-estree@5.49.0(typescript@4.9.4)':
     dependencies:
       '@typescript-eslint/types': 5.49.0
       '@typescript-eslint/visitor-keys': 5.49.0
@@ -1764,19 +1731,19 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.3.8
-      tsutils: 3.21.0(typescript@5.7.3)
+      tsutils: 3.21.0(typescript@4.9.4)
     optionalDependencies:
-      typescript: 5.7.3
+      typescript: 4.9.4
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@5.49.0(eslint@8.32.0)(typescript@5.7.3)':
+  '@typescript-eslint/utils@5.49.0(eslint@8.32.0)(typescript@4.9.4)':
     dependencies:
       '@types/json-schema': 7.0.11
       '@types/semver': 7.3.13
       '@typescript-eslint/scope-manager': 5.49.0
       '@typescript-eslint/types': 5.49.0
-      '@typescript-eslint/typescript-estree': 5.49.0(typescript@5.7.3)
+      '@typescript-eslint/typescript-estree': 5.49.0(typescript@4.9.4)
       eslint: 8.32.0
       eslint-scope: 5.1.1
       eslint-utils: 3.0.0(eslint@8.32.0)
@@ -2517,7 +2484,7 @@ snapshots:
 
   prettier@2.8.3: {}
 
-  prisma@6.3.1(typescript@5.7.3):
+  prisma@4.9.0:
     dependencies:
       '@prisma/engines': 6.3.1
     optionalDependencies:
@@ -2701,10 +2668,10 @@ snapshots:
 
   tslib@2.4.1: {}
 
-  tsutils@3.21.0(typescript@5.7.3):
+  tsutils@3.21.0(typescript@4.9.4):
     dependencies:
       tslib: 1.14.1
-      typescript: 5.7.3
+      typescript: 4.9.4
 
   tsx@4.7.0:
     dependencies:
@@ -2726,7 +2693,7 @@ snapshots:
       media-typer: 0.3.0
       mime-types: 2.1.35
 
-  typescript@5.7.3: {}
+  typescript@4.9.4: {}
 
   unpipe@1.0.0: {}
 
