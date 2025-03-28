@@ -18,8 +18,8 @@ app
   .use(express.urlencoded({ extended: true }));
 
 // Routers
-app.use(`${Constants.System.ROOT}/`, Routers.Health);
-app.use(`${Constants.System.ROOT}/`, Routers.Thread);
+app.use(`${Constants.System.ROOT}/health/`, Routers.Health);
+app.use(`${Constants.System.ROOT}/threads/`, Routers.Thread);
 app.use(`${Constants.System.ROOT}/auth/`, Routers.Auth);
 app.use(`${Constants.System.ROOT}/user/`, Routers.User);
 
