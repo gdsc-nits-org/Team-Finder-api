@@ -2486,7 +2486,10 @@ snapshots:
 
   prisma@4.9.0:
     dependencies:
-      '@prisma/engines': 4.9.0
+      '@prisma/engines': 6.3.1
+    optionalDependencies:
+      fsevents: 2.3.3
+      typescript: 5.7.3
 
   proxy-addr@2.0.7:
     dependencies:

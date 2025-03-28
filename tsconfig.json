@@ -1,6 +1,11 @@
 {
   // Paths not added on purpose
   "compilerOptions": {
+    "paths": {
+      // "@types/*": ["./node_modules/@types"],
+      "@prisma/*": ["./node_modules/@prisma"]
+    },
+    "typeRoots": ["@types", "./node_modules/@types"],
     "moduleResolution": "node",
     "module": "ESNext",
     "target": "ESNext",
