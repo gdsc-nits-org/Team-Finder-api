@@ -22,3 +22,16 @@ model Team {
   writeAccess    User[]   @relation("WriteAccessTeams", references: [id])
   maxMembers     Int      @default(5)
 }
+
+model Thread {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId  
+  description    String  
+  title          String  
+  creatorId      String   @db.ObjectId
+  creator        User     @relation(fields: [creatorId], references: [id])
+  enrolledUsers  String[] @db.ObjectId  
+  writeAccess    String[] @db.ObjectId 
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
