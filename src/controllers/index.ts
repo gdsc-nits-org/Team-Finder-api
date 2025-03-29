@@ -1,3 +1,4 @@
 import * as Health from "./health";
+import * as Messages from "./messages";
 
-export { Health };
+export { Health, Messages };
