@@ -1,24 +1,74 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = env("MONGO_CONNECTION_STRING")
 }
 
+model User {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  firebaseId String   @unique
+  email      String   @unique
+  firstName  String
+  middleName String   @default("")
+  lastName   String
+  username   String   @unique
+  imageUrl   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  techStack  String[]
 
-model Team {
+  createdThreads Thread[] @relation("CreatedThreads")  // ✅ Changed 'thread' to 'Thread'
+
+  messages        Message[]
+  enrolledThreads EnrolledThread[]
+}
+
+enum EnrollmentStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+enum Role {
+  ADMIN
+  MEMBER
+}
+
+model EnrolledThread {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  enrollmentStatus EnrollmentStatus
+  role             Role
+  userId   String @db.ObjectId
+  user     User   @relation(fields: [userId], references: [id])
+  threadId String @db.ObjectId
+  thread   Thread @relation(fields: [threadId], references: [id])  // ✅ Changed 'thread' to 'Thread'
+}
+
+model Thread {  // ✅ Renamed from 'thread' to 'Thread'
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
   title          String
   description    String
-  creatorId      String
-  creator        User     @relation(fields: [creatorId], references: [id])
-  skills         String[] @default([])
-  enrolledUsers  User[]   @relation("EnrolledTeams", references: [id])
-  writeAccess    User[]   @relation("WriteAccessTeams", references: [id])
-  maxMembers     Int      @default(5)
+  creatorId      String   @db.ObjectId
+  creator        User     @relation("CreatedThreads", fields: [creatorId], references: [id])
+  enrolledUsers  String[] @db.ObjectId
+  writeAccess    String[] @db.ObjectId
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  enrolledThreads EnrolledThread[]
+  messages       Message[]
+}
+
+model Message {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  createdAt DateTime @default(now())
+  threadId String @db.ObjectId
+  thread   Thread @relation(fields: [threadId], references: [id])  // ✅ Changed 'thread' to 'Thread'
+  senderId String @db.ObjectId
+  sender   User   @relation(fields: [senderId], references: [id])
 }
