@@ -18,8 +18,8 @@ app
   .use(express.urlencoded({ extended: true }));
 
 // Routers
-app.use(`${Constants.System.ROOT}/`, Routers.Health);
-app.use(`${Constants.System.ROOT}/threads`, Routers.Thread);
+app.use(`${Constants.System.ROOT}/health`, Routers.health);
+app.use(`${Constants.System.ROOT}/threads`, Routers.thread);
 
 // Error Handlers
 app.use(Middlewares.Error.errorHandler);

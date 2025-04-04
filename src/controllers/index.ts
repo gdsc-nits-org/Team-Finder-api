@@ -1,3 +1,4 @@
 import * as Health from "./health";
+import * as Thread from "./thread";
 
-export { Health };
+export { Health, Thread };

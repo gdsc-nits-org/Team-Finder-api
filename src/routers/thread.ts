@@ -1,10 +1,10 @@
-import express from "express";
-import * as Controllers from "../controllers/thread/threadController";
+import { Router } from "express";
+import * as Controllers from "../controllers";
 
-const router = express.Router();
+const router = Router();
 
-router.post("/", Controllers.createThread);
-router.get("/", Controllers.getAllThreads);
-router.get("/:id", Controllers.getThreadById);
+router.post("/create", Controllers.Thread.createThread);
+router.get("/all", Controllers.Thread.getAllThreads);
+router.get("/:id", Controllers.Thread.getThreadById);
 
 export default router;

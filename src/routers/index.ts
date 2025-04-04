@@ -1,4 +1,6 @@
-import Health from "./health";
-import Thread from "./thread";
+import { Router } from "express";
+import healthRouter from "./health";
+import threadRouter from "./thread";
 
-export { Health, Thread };
+export const health = healthRouter;
+export const thread = threadRouter;
