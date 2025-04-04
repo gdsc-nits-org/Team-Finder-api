@@ -1,6 +1,3 @@
-import { Router } from "express";
-import healthRouter from "./health";
-import threadRouter from "./thread";
-
-export const health = healthRouter;
-export const thread = threadRouter;
+export { default as health } from "./health";
+export { default as thread } from "./thread";
+export { default as messages } from "./messages";

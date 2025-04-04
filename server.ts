@@ -19,7 +19,8 @@ app
 
 // Routers
 app.use(`${Constants.System.ROOT}/health`, Routers.health);
-app.use(`${Constants.System.ROOT}/threads`, Routers.thread);
+app.use(`${Constants.System.ROOT}/thread`, Routers.thread);
+app.use(`${Constants.System.ROOT}/messages`, Routers.messages);
 
 // Error Handlers
 app.use(Middlewares.Error.errorHandler);
