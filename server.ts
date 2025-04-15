@@ -21,6 +21,8 @@ app
 app.use(`${Constants.System.ROOT}/`, Routers.Health);
 app.use(`${Constants.System.ROOT}/auth/`, Routers.Auth);
 app.use(`${Constants.System.ROOT}/user/`, Routers.User);
+app.use(`${Constants.System.ROOT}/thread/`, Routers.Thread);
+
 // Error Handlers
 app.use(Middlewares.Error.errorHandler);
 

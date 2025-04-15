@@ -6,21 +6,26 @@ import { prisma } from "../../utils";
 import { User } from "@prisma/client";
 
 const getOneUserById: Interfaces.Controllers.Async = async (req, res, next) => {
-  const id = String(req?.params?.id);
-  if (!id) {
-    return next(Errors.User.badRequest("User ID is required"));
-  }
+  try {
+    const id = String(req?.params?.id);
+    if (!id) {
+      return next(Errors.User.badRequest("User ID is required"));
+    }
 
-  const user = await prisma.user.findUnique({
-    where: {
-      id: id,
-    },
-  });
+    const user = await prisma.user.findUnique({
+      where: {
+        id: id,
+      },
+    });
 
-  if (!user) {
-    return next(Errors.User.userNotFound);
+    if (!user) {
+      return next(Errors.User.userNotFound);
+    }
+    return res.json(Success.User.getUserResponse(user as User));
+  } catch (error) {
+    console.error(error);
+    return next(Errors.System.serverError);
   }
-  return res.json(Success.User.getUserResponse(user as User));
 };
 
 const getAllUser: Interfaces.Controllers.Async = async (req, res, next) => {

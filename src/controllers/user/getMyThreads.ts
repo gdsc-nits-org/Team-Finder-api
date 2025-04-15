@@ -69,7 +69,7 @@ const getMyAllThreads: Interfaces.Controllers.Async = async (
   next
 ) => {
   const { id } = req.user!;
-
+  console.log(id);
   const threads = await prisma.enrolledThread.findMany({
     where: {
       userId: id,

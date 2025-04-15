@@ -1,4 +1,5 @@
 import * as System from "./system";
 import * as Health from "./health";
 import * as User from "./user";
-export { System, Health, User };
+import * as Thread from "./thread";
+export { System, Health, User, Thread };

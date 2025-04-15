@@ -1,3 +1,16 @@
 import { getOneUserById, getAllUser, searchUsers } from "./getUser";
-
-export { getOneUserById, getAllUser, searchUsers };
+import {
+  getMyAllThreads,
+  getMyCreatedThreads,
+  getMyEnrolledThreads,
+  getMyRejectedThreads,
+} from "./getMyThreads";
+export {
+  getOneUserById,
+  getAllUser,
+  searchUsers,
+  getMyAllThreads,
+  getMyCreatedThreads,
+  getMyEnrolledThreads,
+  getMyRejectedThreads,
+};

@@ -1,4 +1,4 @@
 import * as Health from "./health";
 import * as User from "./user";
-
-export { Health, User };
+import * as Thread from "./thread";
+export { Health, User, Thread };
